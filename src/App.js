@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
         <Navbar />
         <main className="max-w-7xl mx-auto min-h-screen">
           <Routes>
-            <Route path="/" element={<div>Home page</div>}></Route>
+            <Route path="/" element={<Home />}></Route>
             <Route path="/cart" element={<div>Cart Page</div>}></Route>
             <Route path="/products" element={<div>Products Page</div>}></Route>
           </Routes>
