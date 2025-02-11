@@ -26,10 +26,16 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action) => {
-      state.push({
-        id: state.length > 0 ? state[state.length - 1].id : 1,
+      const newItem = {
+        id: state.length > 0 ? state[state.length - 1].id + 1 : 1,
         ...action.payload,
-      });
+      };
+
+      console.log("New Item Added:", newItem); // Log the entire object
+      console.log("Assigned ID:", newItem.id); // Log only the ID
+      console.log("Action Payload:", action.payload); // Log the received data
+
+      state.push(newItem);
     },
   },
 });

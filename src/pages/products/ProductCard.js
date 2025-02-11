@@ -1,8 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/features/carts/cartSlice";
 
 const ProductCard = ({ product }) => {
-  const { id, name, price, image, category, date } = product || {};
-  console.log(product);
+  const { name, price, image } = product || {};
+  // console.log(product);
+
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
 
   return (
     <div className="card bg-base-100 w-full md:w-96 shadow-xl">
@@ -19,7 +26,10 @@ const ProductCard = ({ product }) => {
         </p>
         <div className="card-actions justify-end items-center">
           <p className="text-blue-600 font-semibold">R{price}</p>
-          <button className="btn bg-blue-500 text-white hover:bg-blue-600">
+          <button
+            onClick={handleAddToCart}
+            className="btn bg-blue-500 text-white hover:bg-blue-600"
+          >
             Add to Cart
           </button>
         </div>
